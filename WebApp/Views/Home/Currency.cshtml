@@ -1,0 +1,40 @@
+﻿@model WebApp.Models.Root
+
+@{
+    ViewData["Title"] = "Currency";
+}
+
+<h2>Tabela nr @Model.table z dnia @Model.tradingDate obowiązująca od dnia @Model.effectiveDate</h2>
+
+
+<div class="row">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+
+                <th>Nazwa waluty</th>
+                <th>Kod waluty</th>
+                <th>Kurs kupna</th>
+                <th>Kurs sprzedaży</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.rates)
+            {
+                <tr>
+
+                    <td>@item.currency</td>
+
+                    <td>@item.code</td>
+
+                    <td>@item.bid</td>
+                    <td>@item.ask</td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

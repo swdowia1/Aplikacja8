@@ -1,0 +1,74 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Mail";
+}
+
+<h1>Mail</h1>
+<div class="mb-3">
+    <label for="title" class="form-label">Temat</label>
+    <input type="email" class="form-control" id="title">
+</div>
+<div class="mb-3">
+    <label for="body" class="form-label">Treść</label>
+    <textarea class="form-control" id="body" rows="3"></textarea>
+</div>
+<div class="mb-3">
+    <label for="mailTo" class="form-label">Do kogo</label>
+    <input type="email" class="form-control" placeholder='@(Model)' id="mailTo">
+</div>
+<div class="mb-3">
+    <button type="button" id="btnSend" onclick="sendMail()" class="btn btn-primary">Wyślij</button>
+</div>
+<div class="mb-3">
+    <label for="log" class="form-label">Log</label>
+    <textarea class="form-control" id="log" rows="10"></textarea>
+</div>
+@section Scripts
+{
+    <script>
+        var title = document.getElementById("title");
+
+        var body = document.getElementById("body");
+        var mailTo = document.getElementById("mailTo");
+        function log(value) {
+            var newDate = new Date();
+            var datetime = new Date().toLocaleTimeString('en-US', {
+                hour12: false,
+                hour: "numeric",
+                minute: "numeric"
+            });
+            console.log(value);
+            document.getElementById("log").innerHTML = datetime + ": " + value + "\n" + document.getElementById("log").innerHTML;
+        }
+        function sendMail() {
+
+
+
+            log('tworzymy obiekt');
+            var data1 = {
+                Title: title.value,
+                Body: body.value,
+                MailTo: mailTo.value
+            };
+
+            log(JSON.stringify(data1));
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("SendMail", "Home")',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                // traditional: true,
+                data: JSON.stringify(data1),
+                success: function (result) {
+
+
+                    title.value = '';
+                    body.value = '';
+                    mailTo.value = '';
+                    log(result.result);
+                }
+            });
+        }
+    </script>
+}
+
