@@ -17,13 +17,13 @@ Pod adresem [Home/Currency](https://swsw.somee.com/Home/Currency) aplikacja pobi
 
 ## Wysyłanie mail
 
-Pod adresem [Home/Mail](https://swsw.somee.com/Home/Mail) znajduje się formualrz do wysłania maila z polami
+Pod adresem [Home/Mail](https://swsw.somee.com/Home/Mail) znajduje się formualarz do wysłania maila z polami
 - Temat
 - Treść
 - Do kogo(jeśli nie wypełnimy to adresat pobrany bedzię z pliku [appsettings.json](https://github.com/swdowia1/Aplikacja8/blob/master/WebApp/appsettings.json)&rarr;MailTo)
 
 <br>
-Dane do konfigarcji klienta pocztowego znajdują się [tutaj](https://github.com/swdowia1/Aplikacja8/blob/master/WebApp/appsettings.json) &rarr;MailSetting
+Dane do konfiguracji klienta pocztowego znajdują się [tutaj](https://github.com/swdowia1/Aplikacja8/blob/master/WebApp/appsettings.json) &rarr;MailSetting
 
 
 
