@@ -73,7 +73,8 @@ namespace WebApp.Controllers
                 SmtpClient client = new SmtpClient();
                 client.UseDefaultCredentials = false;
                 client.Credentials = new System.Net.NetworkCredential(mailCredential, _MailSetting.PassWord);
-                client.Port = int.Parse(_MailSetting.Port);
+               
+                client.Port = _MailSetting.Port;
                 client.Host = _MailSetting.Host;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.EnableSsl = true;
